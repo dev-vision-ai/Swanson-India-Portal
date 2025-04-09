@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register Admins</title>
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const supabase = createClient(
+      "https://ufczydnvscaicygwlmhz.supabase.co", // Replace this
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmY3p5ZG52c2NhaWN5Z3dsbWh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyMTg5NDYsImV4cCI6MjA1OTc5NDk0Nn0.0TUriXYvPuml-Jzr9v1jvcuzKjh-cZgnZhYKkQEj3t0" // Replace this
+    );
+
+    const admins = [
+      {
+        empCode: "admin_qa",
+        fullName: "QA Admin",
+        department: "Quality Assurance",
+        email: "admin_qa@swanson.in",
+        password: "admin123"
+      },
+      {
+        empCode: "admin_hr",
+        fullName: "HR Admin",
+        department: "Human Resource",
+        email: "admin_hr@swanson.in",
+        password: "admin123"
+      }
+    ];
+
+    async function registerAdmins() {
+      for (const admin of admins) {
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+          email: admin.email,
+          password: admin.password
+        });
+
+        if (authError) {
+          console.error(`❌ Failed to create ${admin.email}:`, authError.message);
+          alert(`❌ Failed: ${admin.email} - ${authError.message}`);
+          continue;
+        }
+
+        const userId = authData.user.id;
+
+        const { error: insertError } = await supabase.from("users").insert({
+          id: userId,
+          employee_code: admin.empCode,
+          full_name: admin.fullName,
+          department: admin.department,
+          is_admin: true
+        });
+
+        if (insertError) {
+          console.error(`❌ Failed to insert user data for ${admin.email}:`, insertError.message);
+          alert(`❌ DB Error for ${admin.email}: ${insertError.message}`);
+        } else {
+          console.log(`✅ Admin ${admin.email} created successfully`);
+          alert(`✅ ${admin.email} registered`);
+        }
+      }
+    }
+
+    window.registerAdmins = registerAdmins;
+  </script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 2rem;">
+  <h2>Register Admin QA & Admin HR</h2>
+  <button onclick="registerAdmins()" style="padding: 10px 20px; font-size: 16px;">
+    Register Admins
+  </button>
+</body>
+</html>
