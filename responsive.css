@@ -1,0 +1,127 @@
+/* Large Screens */
+@media (max-width: 1400px) {
+    .stats-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .two-column-layout {
+        gap: 1.5rem;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .admin-dashboard {
+        padding: 1.5rem 2rem;
+    }
+
+    .two-column-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .three-column-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .content-section {
+        margin: 0.5rem;
+        padding: 1.5rem;
+    }
+
+    .dept-chart-container {
+        flex-direction: column;
+    }
+
+    .dept-chart {
+        min-width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 1rem;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .dept-chart-container {
+        flex-direction: column;
+    }
+    
+    .dept-legend {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .search-row {
+        grid-template-columns: 1fr;
+    }
+
+    .search-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 1.5rem;
+    }
+    
+    .modal-actions,
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .three-column-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .header-container {
+        padding: 1rem;
+    }
+
+    .date-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .content-section {
+        margin: 0.25rem;
+        padding: 1rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .header-title {
+        font-size: 1.2rem;
+    }
+}

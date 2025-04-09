@@ -1,0 +1,137 @@
+.search-container {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.search-header h3 {
+    color: var(--text-dark);
+    font-size: 1.3rem;
+}
+
+.search-header h3 i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.toggle-search {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.search-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.search-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.search-group label {
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.search-group select,
+.search-group input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    font-size: 1.05rem;
+}
+
+.date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date-input-group label {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    min-width: 45px;
+}
+
+.date-input-group input {
+    width: 150px;
+    padding: 8px;
+    height: 38px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    font-size: 1.05rem;
+}
+
+.month-year-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 1rem;
+    align-items: end;
+}
+
+.search-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.filter-tag {
+    background: var(--filter-bg);
+    border: 1px solid var(--filter-border);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-tag .remove-tag {
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.filter-tag .remove-tag:hover {
+    color: var(--danger-color);
+}

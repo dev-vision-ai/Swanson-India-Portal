@@ -1,0 +1,152 @@
+#usersContent {
+    padding: 2rem 3rem;
+    max-width: 1800px;
+    margin: 70px auto 0;
+    color: var(--text-dark);
+}
+
+.employee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.employee-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-color);
+    width: fit-content;
+    cursor: default;
+}
+
+.create-btn {
+    padding: 8px 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.create-btn:hover {
+    box-shadow: 0 8px 15px rgba(0, 46, 125, 0.3);
+    transform: translateY(-2px);
+}
+
+.create-btn:active {
+    transform: scale(0.98);
+}
+
+.users-table {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+}
+
+#usersTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#usersTable th {
+    color: #666;
+    font-weight: 500;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    background: #f8f9fa;
+}
+
+#usersTable td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+#usersTable tr:hover {
+    background-color: #f8f9fa;
+}
+
+.action-btn {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.action-btn.edit {
+    color: var(--warning-color);
+}
+
+.action-btn.delete {
+    color: var(--danger-color);
+}
+
+.action-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.employee-status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+#employeeEditModal .modal-content {
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 1200px) {
+    #usersContent {
+        padding: 1.5rem;
+    }
+    
+    .users-table {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #usersContent {
+        padding: 1rem;
+    }
+    
+    .users-table {
+        padding: 1rem;
+    }
+    
+    #usersTable th, 
+    #usersTable td {
+        padding: 0.8rem;
+    }
+}
+
+.btn-secondary {
+    padding: 5px 10px; /* Adjust padding for the button */
+    background: var(--danger-color); /* Set the background color to red */
+    color: white; /* Set the text color to white */
+    border: none; /* Remove any border */
+    border-radius: 4px; /* Keep the border radius consistent */
+    cursor: pointer;
+    font-size: 0.9rem; /* Adjust font size for smaller button */
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: #b22222; /* Darken the background color on hover */
+    color: white; /* Keep the text color the same */
+}

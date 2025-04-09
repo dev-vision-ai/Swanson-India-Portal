@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Quality Alerts</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <main>
+        <section class="admin-section">
+            <div class="header-container">
+                <div class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                    <div class="dropdown-menu">
+                        <a href="#dashboard" class="nav-item active" id="dashboardBtn">Dashboard</a>
+                        <a href="#alerts" class="nav-item" id="allAlertsBtn">All Quality Alerts</a>
+                        <a href="#pending" class="nav-item" id="pendingAlertsBtn">Pending Alerts</a>
+                        <a href="#resolved" class="nav-item" id="resolvedAlertsBtn">Resolved Alerts</a>
+                        <a href="#users" class="nav-item" id="usersBtn">Manage Users</a>
+                        <a href="#settings" class="nav-item" id="settingsBtn">Settings</a>
+                        <a href="/" class="nav-item" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+                <div class="header-title">Admin Dashboard</div>
+                <div class="company-logo">
+                    <img src="../../assets/logo.png" alt="Company Logo" class="auth-logo">
+                </div>
+            </div>
+
+            <div id="mainContent">
+                <div id="dashboardContent" class="content-section" data-section="dashboard">
+                    <div class="admin-dashboard">
+                        <div class="dashboard-header">
+                            <h2>Quality Alerts Overview</h2>
+                            <div class="date-filter">
+                                <label for="dateRange">Filter by date:</label>
+                                <select id="dateRange">
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month" selected>This Month</option>
+                                    <option value="year">This Year</option>
+                                    <option value="all">All Time</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Total Alerts</h3>
+                                    <p class="stat-number">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Pending</h3>
+                                    <p class="stat-number">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Resolved</h3>
+                                    <p class="stat-number">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Users</h3>
+                                    <p class="stat-number">0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alerts-section">
+                            <div class="section-header">
+                                <h3>Recent Quality Alerts</h3>
+                                <a href="#alerts" class="view-all-btn" id="viewAllAlertsBtn">View All</a>
+                            </div>
+                            <div class="alerts-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>QA Number</th>
+                                            <th>Reported By</th>
+                                            <th>Incident Title</th>
+                                            <th>Responsible Department</th>
+                                            <th>Reported Time</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="alertsTableBody">
+                                        <!-- Table rows will be populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="department-stats">
+                            <div class="section-header">
+                                <h3>Analytics Overview</h3>
+                            </div>
+                            <div class="dept-chart-container">
+                                <div class="dept-chart">
+                                    <h4>Alerts by Department</h4>
+                                    <canvas id="departmentChart"></canvas>
+                                </div>
+                                <div class="dept-chart">
+                                    <h4>Monthly Alert Trends</h4>
+                                    <canvas id="alertTrendChart"></canvas>
+                                </div>
+                                <div class="dept-chart">
+                                    <h4>Alert Status Distribution</h4>
+                                    <canvas id="statusChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart-legend-container">
+                                <div class="dept-legend">
+                                    <h4>Department Legend</h4>
+                                    <div class="legend-item">
+                                        <span class="color-box" style="background-color: #002E7D;"></span>
+                                        <span>Production</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="color-box" style="background-color: #0046C7;"></span>
+                                        <span>Quality Control</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="color-box" style="background-color: #4D79FF;"></span>
+                                        <span>Maintenance</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="color-box" style="background-color: #99B3FF;"></span>
+                                        <span>Others</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <section class="advanced-search-panel">
+                            <div class="search-header">
+                                <h3><i class="fas fa-search"></i> Advanced Search</h3>
+                                <button class="toggle-search" id="toggleSearch">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                            <div class="search-content">
+                                <div class="search-row">
+                                    <div class="search-group">
+                                        <label>Employee Name</label>
+                                        <select id="employeeFilter">
+                                            <option value="">Select Employee</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-group">
+                                        <label>Department</label>
+                                        <select id="departmentFilter">
+                                            <option value="">Select Department</option>
+                                            <option value="Production">Production</option>
+                                            <option value="Quality Control">Quality Control</option>
+                                            <option value="Administration">Administration</option>
+                                            <option value="Quality Assurance">Quality Assurance</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Human Resource">Human Resource</option>
+                                            <option value="Warehouse">Warehouse</option>
+                                            <option value="Logistics">Logistics</option>
+                                            <option value="Purchase">Purchase</option>
+                                            <option value="Maintenance">Maintenance</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="search-row">
+                                    <div class="search-group">
+                                        <label>Type of Abnormality</label>
+                                        <select id="abnormalityFilter">
+                                            <option value="">Select Type</option>
+                                            <option value="Safety">Safety</option>
+                                            <option value="Raw/Sub Material">Raw/Sub Material</option>
+                                            <option value="Documents/Records">Documents/Records</option>
+                                            <option value="SOP Deviation">SOP Deviation</option>
+                                            <option value="Machine/Equipment">Machine/Equipment</option>
+                                            <option value="Environment/Facility">Environment/Facility</option>
+                                            <option value="Process">Process</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-group">
+                                        <label>Potential Risk</label>
+                                        <select id="riskFilter">
+                                            <option value="">Select Risk</option>
+                                            <option value="Poor Appearance">Poor Appearance</option>
+                                            <option value="Print defect">Print defect</option>
+                                            <option value="Damage">Damage</option>
+                                            <option value="Contamination">Contamination</option>
+                                            <option value="Injury/Hazardous">Injury/Hazardous</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="search-row">
+                                    <div class="search-group date-group">
+                                        <label>Date Range</label>
+                                        <div class="date-inputs">
+                                            <div class="date-input-group">
+                                                <label>From:</label>
+                                                <input type="date" id="startDate">
+                                            </div>
+                                            <div class="date-input-group">
+                                                <label>To:</label>
+                                                <input type="date" id="endDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="search-group">
+                                        <label>Month & Year</label>
+                                        <div class="month-year-inputs">
+                                            <select id="monthFilter">
+                                                <option value="">Month</option>
+                                                <option value="1">January</option>
+                                                <option value="2">February</option>
+                                                <option value="3">March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                            <input type="number" id="yearFilter" placeholder="Year" min="2000" max="2099">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="search-actions">
+                                    <button id="applyFilters" class="btn-primary">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                    <button id="resetFilters" class="btn-secondary">
+                                        <i class="fas fa-undo"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Alerts List Content Section -->
+                <div id="alertsListContent" class="content-section" style="display: none;">
+                    <h2>All Alerts</h2>
+                    <div class="alerts-table">
+                        <table id="alertsListTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Department</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Users Management Content Section -->
+                <div id="usersContent" class="content-section" style="display: none;">
+                    <div class="employee-header">
+                        <h2 class="employee-title">Employee Management</h2>
+                        <button class="create-btn" data-action="create-employee">
+                            <i class="fas fa-plus"></i> Add New User
+                        </button>
+                    </div>
+
+                    <div class="users-table">
+                        <table id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Employee Code</th>
+                                    <th>Full Name</th>
+                                    <th>Department</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table rows will be dynamically populated with this structure: -->
+                                <!-- <tr>
+                                    <td>1</td>
+                                    <td>EMP001</td>
+                                    <td>John Doe</td>
+                                    <td>Production</td>
+                                    <td><span class="employee-status status-active">Active</span></td>
+                                    <td class="table-actions">
+                                        <button class="action-btn edit" data-action="edit-employee" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn delete" data-action="delete-employee" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Add Employee Edit Modal -->
+                <div id="employeeEditModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Edit Employee</h2>
+                        <form id="editEmployeeForm">
+                            <div class="form-group">
+                                <label for="empCode">Employee Code*</label>
+                                <input type="text" id="empCode" name="empCode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fullName">Full Name*</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department*</label>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="Production">Production</option>
+                                    <option value="Quality Control">Quality Control</option>
+                                    <option value="Administration">Administration</option>
+                                    <option value="Quality Assurance">Quality Assurance</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Human Resource">Human Resource</option>
+                                    <option value="Warehouse">Warehouse</option>
+                                    <option value="Logistics">Logistics</option>
+                                    <option value="Purchase">Purchase</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password*</label>
+                                <input type="password" id="password" name="password">
+                                <small>(Leave blank to keep existing password)</small>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save</button>
+                                <button type="button" class="btn-secondary close-modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Settings Content Section -->
+                <div id="settingsContent" class="content-section" style="display: none;">
+                    <!-- For HR Admin -->
+                    <div id="hr-tools" style="display: none;">
+                      <h2>HR Tools</h2>
+                      <button id="addEmployeeBtn">Create New Employee</button>
+                    </div>
+
+                    <!-- For QA Admin -->
+                    <div id="qa-tools" style="display: none;">
+                      <h2>QA Tools</h2>
+                      <p>Coming soon: Alert review tools</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="alertDetailsModal" class="modal">
+        <div class="modal-content">
+        </div>
+    </div>
+
+    <div id="alertEditModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Alert</h2>
+            <form id="editAlertForm">
+                <input type="hidden" name="alertId">
+                <div class="form-group">
+                    <label for="incidentTitle">Incident Title</label>
+                    <input type="text" id="incidentTitle" name="incidentTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="responsibleDept">Department</label>
+                    <select id="responsibleDept" name="responsibleDept" required>
+                        <option value="">Select Department</option>
+                        <option value="Production">Production</option>
+                        <option value="Quality Control">Quality Control</option>
+                        <option value="Administration">Administration</option>
+                        <option value="Quality Assurance">Quality Assurance</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Human Resource">Human Resource</option>
+                        <option value="Warehouse">Warehouse</option>
+                        <option value="Logistics">Logistics</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Maintenance">Maintenance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rootCause">Root Cause</label>
+                    <textarea id="rootCause" name="rootCause" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="correctiveAction">Corrective Action</label>
+                    <textarea id="correctiveAction" name="correctiveAction" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" class="btn-secondary close-modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="js/database.js"></script>
+    <script type="module" src="js/ui.js"></script>
+    <script type="module" src="js/alerts.js"></script>
+    <script type="module" src="js/charts.js"></script>
+    <script type="module" src="js/users.js"></script>
+    <!-- Add this before the closing body tag -->
+    <script type="module">
+        import { navigationModule } from './js/navigation.js';
+        import { roleAccessModule } from './js/roleAccess.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            navigationModule.init();
+            roleAccessModule.init();
+        });
+    </script>
+</body>
+</html>

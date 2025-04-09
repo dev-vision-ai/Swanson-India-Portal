@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Swanson India Portal</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <section class="dashboard-section">
+                <div class="header-container">
+                    <div class="left-section">
+                        <div class="menu-icon">
+                            <i class="fas fa-bars"></i>
+                            <div class="dropdown-menu">
+                                <a href="#" class="nav-item">
+                                    <i class="fas fa-tasks"></i>My Submitted Forms
+                                </a>
+                                <a href="#" class="nav-item">
+                                    <i class="fas fa-clock"></i>Pending Actions
+                                </a>
+                                <a href="#" class="nav-item">
+                                    <i class="fas fa-cog"></i>Settings
+                                </a>
+                                <a href="#" class="nav-item" id="logoutBtn">
+                                    <i class="fas fa-sign-out-alt"></i>Logout
+                                </a>
+                            </div>
+                        </div>
+                        <div class="notification-icon">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">0</span>
+                            <div class="notification-dropdown">
+                                <div class="notification-list">
+                                    <p class="no-notifications">No new notifications</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-title">Employee Dashboard</div>
+                    <div class="company-logo">
+                        <img src="../../assets/logo.png" alt="Company Logo" class="auth-logo">
+                    </div>
+                </div>
+
+                <div class="welcome-section">
+                    <h2>Welcome, <span id="employeeName">Employee</span></h2>
+                    <p>Employee Code: <span id="employeeCode"></span></p>
+                </div>
+
+                <div class="quick-actions">
+                    <div class="action-card" onclick="location.href='../QualityAlertForm/QualityAlertForm.html'">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Quality Alert</h3>
+                        <p>Report New Quality Alert</p>
+                    </div>
+                    <div class="action-card" onclick="location.href='../SafetyIncidentForm/SafetyIncidentForm.html'">
+                        <i class="fas fa-hard-hat"></i>
+                        <h3>Safety Incident</h3>
+                        <p>Report a Safety Incident</p>
+                    </div>
+                    <div class="action-card" onclick="location.href='../SuggestionForm/SuggestionForm.html';">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Suggestions</h3>
+                        <p>Share Your Suggestions</p>
+                    </div>
+                    
+                    <div class="action-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>My Forms</h3>
+                        <p>View Your Submitted Forms</p>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Pending</h3>
+                        <p>View Pending Actions</p>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Reports</h3>
+                        <p>View All Reports</p>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <div class="activity-list"></div>
+                </div>
+            </section>
+
+            <section class="incident-section"></section>
+        </div>
+    </main>
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>

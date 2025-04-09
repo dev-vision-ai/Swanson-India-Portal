@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Continual Improvement Form</title>
+<link rel="stylesheet" href="SuggestionForm.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+<section class="incident-section">
+<div class="header-container">
+<div class="header-title">SWANSON PLASTICS (INDIA) PVT. LTD.</div>
+<h2>Continual Improvement Form</h2>
+</div>
+<form id="suggestionForm">
+<div class="split-container">
+<div class="split-item"><div class="form-group"><label for="ciNo">CI No.</label><input type="text" id="ciNo" required></div></div>
+<div class="split-item"><div class="form-group"><label for="issuedDate">Issued Date</label><input type="date" id="issuedDate" required></div></div>
+</div>
+<div class="split-container">
+<div class="split-item"><div class="form-group"><label for="requestor">Requestor</label><input type="text" id="requestor" required></div></div>
+<div class="split-item"><div class="form-group"><label for="hod">HOD</label><input type="text" id="hod" required></div></div>
+</div>
+<div class="form-group"><label for="proposedImprovement">Proposed Improvement</label><textarea id="proposedImprovement" rows="4" required></textarea></div>
+<div class="checkbox-group">
+<label>Type of Improvement (Mark "√" for applicable options)</label>
+<div class="checkbox-container">
+<div class="checkbox-item"><input type="checkbox" id="costReduction" name="improvementType"><label for="costReduction">Cost Reduction</label></div>
+<div class="checkbox-item"><input type="checkbox" id="manpowerSaving" name="improvementType"><label for="manpowerSaving">Manpower/Time saving</label></div>
+<div class="checkbox-item"><input type="checkbox" id="increaseOutput" name="improvementType"><label for="increaseOutput">Increase in Output</label></div>
+<div class="checkbox-item"><input type="checkbox" id="safetyImprovement" name="improvementType"><label for="safetyImprovement">Safety related improvement</label></div>
+<div class="checkbox-item"><input type="checkbox" id="increaseYield" name="improvementType"><label for="increaseYield">Increase in Yield</label></div>
+<div class="checkbox-item"><input type="checkbox" id="environmental" name="improvementType"><label for="environmental">Environmental Improvement</label></div>
+<div class="checkbox-item"><input type="checkbox" id="productQuality" name="improvementType"><label for="productQuality">Improve product quality</label></div>
+<div class="checkbox-item"><input type="checkbox" id="other" name="improvementType"><label for="other">Other (describe)</label></div>
+</div>
+</div>
+<div class="form-group" id="otherDescriptionGroup" style="display:none"><label for="otherDescription">Please specify other improvement type:</label><input type="text" id="otherDescription" name="otherDescription"></div>
+<div class="form-group"><label for="currentCondition">Description of Current Condition / Situation (Reason for Improvement)</label><textarea id="currentCondition" rows="4" required></textarea></div>
+<div class="form-group"><label for="improvementMethod">Proposed method of improvement (Idea for Improvement)</label><textarea id="improvementMethod" rows="4" required></textarea></div>
+<div class="form-group"><label for="expectedResults">Expected results after Improvement (Target achievement)</label><textarea id="expectedResults" rows="4" required></textarea></div>
+<div class="approval-section">
+<label>Job Delegation:-</label>
+<div class="delegation-section">
+<div class="delegation-row">
+<span class="row-label">Implementation Dept:-</span>
+<div class="delegation-checkboxes">
+<div class="checkbox-item"><input type="checkbox" id="ad_impl"><label for="ad_impl">AD</label></div>
+<div class="checkbox-item"><input type="checkbox" id="ac_impl"><label for="ac_impl">AC</label></div>
+<div class="checkbox-item"><input type="checkbox" id="mt_impl"><label for="mt_impl">MT</label></div>
+<div class="checkbox-item"><input type="checkbox" id="pd_impl"><label for="pd_impl">PD</label></div>
+<div class="checkbox-item"><input type="checkbox" id="qc_impl"><label for="qc_impl">QC</label></div>
+<div class="checkbox-item"><input type="checkbox" id="qa_impl"><label for="qa_impl">QA</label></div>
+<div class="checkbox-item"><input type="checkbox" id="wh_impl"><label for="wh_impl">WH/LG</label></div>
+<div class="checkbox-item"><input type="checkbox" id="hr_impl"><label for="hr_impl">HR</label></div>
+<div class="checkbox-item"><input type="checkbox" id="mr_impl"><label for="mr_impl">MR</label></div>
+<div class="checkbox-item"><input type="checkbox" id="pu_impl"><label for="pu_impl">PU</label></div>
+</div>
+</div>
+<div class="delegation-row">
+<span class="row-label">Supporting Dept:-</span>
+<div class="delegation-checkboxes">
+<div class="checkbox-item"><input type="checkbox" id="ad_supp"><label for="ad_supp">AD</label></div>
+<div class="checkbox-item"><input type="checkbox" id="ac_supp"><label for="ac_supp">AC</label></div>
+<div class="checkbox-item"><input type="checkbox" id="mt_supp"><label for="mt_supp">MT</label></div>
+<div class="checkbox-item"><input type="checkbox" id="pd_supp"><label for="pd_supp">PD</label></div>
+<div class="checkbox-item"><input type="checkbox" id="qc_supp"><label for="qc_supp">QC</label></div>
+<div class="checkbox-item"><input type="checkbox" id="qa_supp"><label for="qa_supp">QA</label></div>
+<div class="checkbox-item"><input type="checkbox" id="wh_supp"><label for="wh_supp">WH/LG</label></div>
+<div class="checkbox-item"><input type="checkbox" id="hr_supp"><label for="hr_supp">HR</label></div>
+<div class="checkbox-item"><input type="checkbox" id="mr_supp"><label for="mr_supp">MR</label></div>
+<div class="checkbox-item"><input type="checkbox" id="pu_supp"><label for="pu_supp">PU</label></div>
+</div>
+</div>
+</div>
+</div>
+<div class="status-section">
+<label>Status:-</label>
+<div class="status-options">
+<div class="radio-item"><input type="radio" id="approved" name="status" value="approved"><label for="approved">Approved</label></div>
+<div class="radio-item"><input type="radio" id="notApproved" name="status" value="notApproved"><label for="notApproved">Not Approved</label></div>
+</div>
+</div>
+<div class="signature-section">
+<div class="signature-row">
+<div class="signature-field"><label>Verified By:</label><div class="signature-line">Plant GM</div></div>
+<div class="signature-field"><label>Approved By:</label><div class="signature-line">Managing Director</div></div>
+</div>
+</div>
+<div class="form-footer"><p>Distribution: Nil</p><p>Retention Period: 5 years</p></div>
+<div class="button-container">
+<button type="submit" class="submit-btn">Submit Form</button>
+<button type="button" class="draft-btn">Save Draft</button>
+</div>
+</form>
+</section>
+</main>
+<main>
+<section class="incident-section">
+<div class="header-container">
+<div class="header-title">SWANSON PLASTICS (INDIA) PVT. LTD.</div>
+<div class="form-number">FQP-GM03-01AA(Back)</div>
+<div class="form-date">Eff. Date: 15/02/2024</div>
+<h2>Continual Improvement Form</h2>
+</div>
+<div class="planning-implementation">
+<div class="section-header">To be filled by Requestor</div>
+<table class="planning-table">
+<tr><td>Expected completion Date:</td><td>Actual completion Date:</td></tr>
+<tr><td>Proposed method of improvement & Planning (Step by Step)</td><td>Resources required (Material, Facility, Spec, Quantity etc.)</td></tr>
+<tr class="large-cell"><td colspan="2"></td></tr>
+<tr><td>Requestor: <span class="underline"></span> HOD: <span class="underline"></span></td><td>Implemented By: <span class="underline"></span> HOD: <span class="underline"></span></td></tr>
+</table>
+</div>
+<div class="evaluation-section">
+<div class="section-header">(To be filled up by requestor)</div>
+<table class="evaluation-table">
+<tr><td>
+<h4>Investment</h4>
+<div class="investment-items">
+<div class="item">Add or/modification of equipment <span class="currency">INR</span></div>
+<div class="item">Man hour <input type="number" class="hours"> hours <span class="currency">INR</span></div>
+<div class="item">Outsource <span class="currency">INR</span></div>
+<div class="item">Machine downtime <input type="number" class="hours"> hours <span class="currency">INR</span></div>
+<div class="item">Scrap/Waste Qty. <input type="number" class="qty"> kg <span class="currency">INR</span></div>
+<div class="item">Others <span class="currency">INR</span></div>
+<div class="item total">Total Cost <span class="currency">INR</span></div>
+</div>
+</td>
+<td>
+<h4>Benefit Obtained (can tick "√" more than one)</h4>
+<div class="benefit-items">
+<div class="item"><input type="checkbox"> Cost saving <span class="currency">INR</span></div>
+<div class="item"><input type="checkbox"> Improved output <span>kgs</span></div>
+<div class="item"><input type="checkbox"> Improved yield <span>%</span></div>
+<div class="item"><input type="checkbox"> Improved Quality <span>Qty.</span></div>
+<div class="item"><input type="checkbox"> Improved man-hours <span class="currency">INR</span> / hour</div>
+<div class="item"><input type="checkbox"> Improved environment</div>
+<div class="item"><input type="checkbox"> Improved safety</div>
+<div class="item"><input type="checkbox"> Others</div>
+<div class="item"><input type="checkbox"> No benefit</div>
+</div>
+</td></tr>
+</table>
+</div>
+<div class="effectiveness-section">
+<div class="remarks"><label>Remarks on follow-up:</label><div class="remarks-box"></div></div>
+<div class="rewards"><label>Rewards:</label><input type="checkbox"> Yes<input type="checkbox"> No</div>
+<div class="comments"><label>Comments:</label><div class="comments-box"></div></div>
+<div class="signatures">
+<div class="signature-row">
+<div>Plant GM</div><div>Managing Director</div><div>Implementation Dept.</div><div>Requestor</div>
+</div>
+<div class="date-row">
+<div>Date:</div><div>Date:</div><div>Date:</div><div>Date:</div>
+</div>
+</div>
+</div>
+<div class="form-footer"><p>Distribution: Nil</p><p>Retention Period: 5 years</p></div>
+</section>
+</main>
+<script src="SuggestionForm.js"></script>
+</body>
+</html>

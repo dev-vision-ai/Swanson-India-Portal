@@ -1,0 +1,13 @@
+/* Admin Dashboard Styles */
+@import 'styles/variables.css';
+@import 'styles/base.css';
+@import 'styles/layout.css';
+@import 'styles/header.css';
+@import 'styles/dashboard.css';
+@import 'styles/tables.css';
+@import 'styles/forms.css';
+@import 'styles/modals.css';
+@import 'styles/search.css';
+@import 'styles/charts.css';
+@import 'styles/employee.css';
+@import 'styles/responsive.css';
